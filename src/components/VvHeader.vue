@@ -6,9 +6,10 @@
       <i
         class="material-icons header__icon-menu icon--font-bigger"
         @click="sidebarMenuOpen = !sidebarMenuOpen"
-      >menu</i>
+      >menu
+      </i>
     </header>
-    <sidebar-menu :open="sidebarMenuOpen" />
+    <sidebar-menu :open="sidebarMenuOpen" @close="sidebarMenuOpen = false" />
   </div>
 </template>
 <script>
@@ -27,14 +28,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '~@/styles/colors';
+@import "~@/styles/variables.scss";
 
 header {
   background-color: map-get($theme-colors, 'gray');
-  padding: 8px 16px;
+  padding: $block--padding;
   justify-content: space-between;
 
   .header__h1 {
-    cursor: pointer;
     font-size: 24px;
     font-weight: 300;
   }

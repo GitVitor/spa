@@ -1,5 +1,18 @@
 <template>
-  <div class="sidebar-menu" :class="{ 'sidebar-menu--open': open }"></div>
+  <transition name="fade">
+    <div class="sidebar-menu d-flex" v-if="open">
+      <header class="sidebar-menu__header">
+        <i class="material-icons sidebar-menu__header__icon-close c-pointer" @click="$emit('close')">
+          close
+        </i>
+      </header>
+      <ul class="sidebar-menu__list">
+        <li class="sidebar-menu__list__item"> <span>Resumo</span> </li>
+        <li class="sidebar-menu__list__item"> <span>Dashboard</span> </li>
+        <li class="sidebar-menu__list__item"> <span>Configurações</span> </li>
+      </ul>
+    </div>
+  </transition>
 </template>
 <script>
 export default {
@@ -13,13 +26,56 @@ export default {
 <style lang="scss" scoped>
 @import "~@/styles/colors";
 
-.sidebar-menu--open {
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
+  opacity: 0;
+}
+
+.sidebar-menu {
   background-color: map-get($theme-colors, 'dark-gray');
   height: 100vh;
+  flex-direction: column;
+  padding: 8px 0;
   position: absolute;
-  right: 0;
   top: 0;
-  width: 85vw;
+  right: 0;
+  width: 75vw;
+
+  .sidebar-menu__header {
+    padding-left: 16px;
+
+
+    .sidebar-menu__header__icon-close {
+      color: map-get($theme-colors, 'white');
+      font-weight: bold;
+      font-size: 25px;
+      padding: 15px 0;
+    }
+  }
+
+  .sidebar-menu__list {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+
+  .sidebar-menu__list__item {
+    color: map-get($theme-colors, 'white');
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px;
+
+    &:hover {
+      color: map-get($theme-colors, 'dark-gray');
+      background-color: map-get($theme-colors, 'gray');
+    }
+
+    span {
+      padding-right: 16px;
+    }
+  }
 }
 </style>
 
