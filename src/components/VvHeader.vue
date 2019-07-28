@@ -1,18 +1,20 @@
 <template>
   <div>
-    <header class="d-flex">
-      <i class="material-icons header__icon-logo header__icon--font-bigger">add_shopping_cart</i>
-      <h1 class="header__h1">Controle financeiro</h1>
-      <i
-        class="material-icons header__icon-menu header__icon--font-bigger"
-        @click="sidebarMenuOpen = !sidebarMenuOpen"
-      >menu</i>
-      <ul class="header__menu">
-        <li class="header__menu__item">Dashboard</li>
-        <li class="header__menu__item">Resumo</li>
-        <li class="header__menu__item">Configurações</li>
-      </ul>
-    </header>
+    <div class="header-wrapper">
+      <header class="d-flex">
+        <i class="material-icons header__icon-logo header__icon--font-bigger">add_shopping_cart</i>
+        <h1 class="header__h1">Controle financeiro</h1>
+        <i
+          class="material-icons header__icon-menu header__icon--font-bigger"
+          @click="sidebarMenuOpen = !sidebarMenuOpen"
+        >menu</i>
+        <ul class="header__menu">
+          <li class="header__menu__item">Dashboard</li>
+          <li class="header__menu__item">Resumo</li>
+          <li class="header__menu__item">Configurações</li>
+        </ul>
+      </header>
+    </div>
     <sidebar-menu :open="sidebarMenuOpen" @close="sidebarMenuOpen = false" />
   </div>
 </template>
@@ -32,12 +34,15 @@ export default {
 
 <style lang="scss" scoped>
 @import '~@/styles/colors';
-@import '~@/styles/variables.scss';
+@import '~@/styles/variables';
 @import '~@/styles/mixins';
 
-header {
+.header-wrapper {
   background-color: map-get($theme-colors, 'gray');
-  padding: 16px 16px;
+}
+
+header {
+  padding: 16px 0;
   justify-content: space-between;
 
   @include media-breakpoint-up(lg) {

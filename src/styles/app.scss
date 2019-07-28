@@ -1,5 +1,7 @@
 @import './utils';
 @import './fonts';
+@import './variables';
+@import './mixins';
 
 body {
   margin: 0;
@@ -9,4 +11,9 @@ body {
 
 ul {
   list-style: none;
+}
+
+.container {
+  @include make-container();
+  @include make-container-max-widths();
 }
