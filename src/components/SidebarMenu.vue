@@ -2,14 +2,21 @@
   <transition name="fade">
     <div class="sidebar-menu d-flex" v-if="open">
       <header class="sidebar-menu__header">
-        <i class="material-icons sidebar-menu__header__icon-close c-pointer" @click="$emit('close')">
-          close
-        </i>
+        <i
+          class="material-icons sidebar-menu__header__icon-close c-pointer"
+          @click="$emit('close')"
+        >close</i>
       </header>
       <ul class="sidebar-menu__list">
-        <li class="sidebar-menu__list__item"> <span>Resumo</span> </li>
-        <li class="sidebar-menu__list__item"> <span>Dashboard</span> </li>
-        <li class="sidebar-menu__list__item"> <span>Configurações</span> </li>
+        <li class="sidebar-menu__list__item">
+          <span>Resumo</span>
+        </li>
+        <li class="sidebar-menu__list__item">
+          <span>Dashboard</span>
+        </li>
+        <li class="sidebar-menu__list__item">
+          <span>Configurações</span>
+        </li>
       </ul>
     </div>
   </transition>
@@ -24,10 +31,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "~@/styles/colors";
+@import '~@/styles/colors';
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
   opacity: 0;
@@ -37,6 +45,7 @@ export default {
   background-color: map-get($theme-colors, 'dark-gray');
   height: 100vh;
   flex-direction: column;
+  max-width: 320px;
   padding: 8px 0;
   position: absolute;
   top: 0;
@@ -45,7 +54,6 @@ export default {
 
   .sidebar-menu__header {
     padding-left: 16px;
-
 
     .sidebar-menu__header__icon-close {
       color: map-get($theme-colors, 'white');
@@ -78,4 +86,3 @@ export default {
   }
 }
 </style>
-
