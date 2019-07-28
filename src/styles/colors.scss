@@ -1,0 +1,11 @@
+$theme-colors: (
+  "black": #000,
+  "gray": #CCC,
+  "white": #FFF
+);
+
+:export {
+  @each $name, $color in $theme-colors {
+    #{$name}: $color;
+  }
+}
