@@ -52,10 +52,10 @@ export default {
   right: 0;
   width: 75vw;
 
-  .sidebar-menu__header {
+  &__header {
     padding-left: 1em;
 
-    .sidebar-menu__header__icon-close {
+    &__icon-close {
       color: map-get($theme-colors, 'white');
       font-weight: bold;
       font-size: 1.5em;
@@ -63,13 +63,13 @@ export default {
     }
   }
 
-  .sidebar-menu__list {
+  &__list {
     margin: 0;
     padding: 0;
     text-align: right;
   }
 
-  .sidebar-menu__list__item {
+  &__list__item {
     color: map-get($theme-colors, 'white');
     cursor: pointer;
     font-weight: 600;

@@ -1,9 +1,10 @@
 <template>
   <section class="dashboard-order">
+    <h3 class="dashboard-order__title">Nova transação</h3>
     <vv-field class="dashboard-order__vv-field" label="Tipo de transação">
       <vv-select
         v-model="order.type"
-        placeholder="Selecione um tipo de transação"
+        placeholder="Selecione"
         @change="evt => updateOrder('type', evt.target.value)"
       >
         <option
@@ -73,9 +74,11 @@ export default {
   @include media-breakpoint-up(md) {
     flex-direction: row;
     justify-content: space-between;
+    border: 1px solid map-get($theme-colors, 'gray');
+    padding: 1em;
   }
 
-  ::v-deep .dashboard-order__vv-field {
+  ::v-deep &__vv-field {
     margin: 0.5em 0;
 
     @include media-breakpoint-up(md) {
@@ -96,19 +99,29 @@ export default {
     }
   }
 
-  ::v-deep .dashboard-order__vv-field-name {
+  ::v-deep &__vv-field-name {
     @include media-breakpoint-up(md) {
       flex-grow: 1;
     }
   }
 
-  .dashboard-order__wrapper-add-order {
+  &__title {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+      flex: 0 0 100%;
+      text-align: center;
+    }
+  }
+
+  &__wrapper-add-order {
     flex: 0 0 100%;
     display: flex;
     justify-content: flex-end;
   }
 
-  .dashboard-order__btn-add-order {
+  &__btn-add-order {
     width: 100%;
 
     @include media-breakpoint-up(md) {
