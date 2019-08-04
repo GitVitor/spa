@@ -7,7 +7,8 @@
         <i
           class="material-icons header__icon-menu header__icon--font-bigger"
           @click="sidebarMenuOpen = !sidebarMenuOpen"
-        >menu</i>
+          >menu
+        </i>
         <ul class="header__menu">
           <li class="header__menu__item">Dashboard</li>
           <li class="header__menu__item">Resumo</li>
@@ -78,7 +79,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 0 0 auto;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
 
     @include media-breakpoint-up(lg) {
       display: flex;

@@ -1,3 +1,10 @@
+$input-border: 1px solid map-get($theme-colors, 'dark-gray');
+$input-border-radius: 4px;
+$input-font-size: 0.9em;
+$input-height: 2.5em;
+$input-padding: 0 0.4em;
+$input-width: calc(100% - 0.9em);
+
 $grid-gutter-width: 30px !default;
 
 $grid-breakpoints: (

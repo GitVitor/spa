@@ -5,7 +5,7 @@
         <i
           class="material-icons sidebar-menu__header__icon-close c-pointer"
           @click="$emit('close')"
-        >close</i>
+          >close</i>
       </header>
       <ul class="sidebar-menu__list">
         <li class="sidebar-menu__list__item">
@@ -46,7 +46,7 @@ export default {
   height: 100vh;
   flex-direction: column;
   max-width: 20em;
-  padding: .5em 0;
+  padding: 0.5em 0;
   position: absolute;
   top: 0;
   right: 0;
@@ -73,7 +73,7 @@ export default {
     color: map-get($theme-colors, 'white');
     cursor: pointer;
     font-weight: 600;
-    padding: .5em;
+    padding: 0.5em;
 
     &:hover {
       color: map-get($theme-colors, 'dark-gray');
