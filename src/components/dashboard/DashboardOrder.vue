@@ -20,7 +20,9 @@
     <vv-field label="Valor">
       <vv-input />
     </vv-field>
-    {{order}}
+    <button class="btn btn-dark-gray">
+      Adicionar transação
+    </button>
   </section>
 </template>
 <script>
@@ -59,5 +61,9 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .vv-field {
   margin: 0.5em 0;
+}
+
+.btn {
+  width: 100%;
 }
 </style>
