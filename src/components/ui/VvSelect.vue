@@ -25,6 +25,7 @@ export default {
 <style lang="scss" scoped>
 @import '~@/styles/colors';
 @import '~@/styles/variables';
+@import '~@/styles/mixins';
 
 .vv-select {
   background-color: map-get($theme-colors, 'white');
@@ -33,5 +34,9 @@ export default {
   font-size: $input-font-size;
   height: calc(#{$input-height} + 6px);
   width: 100%;
+
+  @include media-breakpoint-up (md) {
+  height: calc(#{$input-height} + 2px);
+  }
 }
 </style>
