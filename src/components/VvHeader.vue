@@ -42,16 +42,16 @@ export default {
 }
 
 header {
-  padding: 16px 0;
+  padding: 1em 0;
   justify-content: space-between;
 
   @include media-breakpoint-up(lg) {
-    padding: 24px 16px;
+    padding: 1.5em 1em;
     justify-content: initial;
   }
 
   .header__h1 {
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: 300;
     margin: 0;
   }
@@ -65,11 +65,11 @@ header {
   }
 
   .header__icon-logo {
-    margin-right: 16px;
+    margin-right: 1em;
   }
 
   .header__icon--font-bigger {
-    font-size: 30px;
+    font-size: 1.8em;
   }
 
   .header__menu {
@@ -78,7 +78,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 0 0 auto;
-    padding: 8px 16px;
+    padding: .5em 1em;
 
     @include media-breakpoint-up(lg) {
       display: flex;
@@ -87,7 +87,7 @@ header {
     .header__menu__item {
       cursor: pointer;
       font-weight: 400;
-      padding: 0 20px;
+      padding: 0 1.25em;
 
       &:hover {
         color: map-get($theme-colors, 'dark-gray');

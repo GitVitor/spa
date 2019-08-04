@@ -45,21 +45,21 @@ export default {
   background-color: map-get($theme-colors, 'dark-gray');
   height: 100vh;
   flex-direction: column;
-  max-width: 320px;
-  padding: 8px 0;
+  max-width: 20em;
+  padding: .5em 0;
   position: absolute;
   top: 0;
   right: 0;
   width: 75vw;
 
   .sidebar-menu__header {
-    padding-left: 16px;
+    padding-left: 1em;
 
     .sidebar-menu__header__icon-close {
       color: map-get($theme-colors, 'white');
       font-weight: bold;
-      font-size: 25px;
-      padding: 15px 0;
+      font-size: 1.5em;
+      padding: 1em 0;
     }
   }
 
@@ -73,7 +73,7 @@ export default {
     color: map-get($theme-colors, 'white');
     cursor: pointer;
     font-weight: 600;
-    padding: 8px;
+    padding: .5em;
 
     &:hover {
       color: map-get($theme-colors, 'dark-gray');
@@ -81,7 +81,7 @@ export default {
     }
 
     span {
-      padding-right: 16px;
+      padding-right: 1em;
     }
   }
 }
