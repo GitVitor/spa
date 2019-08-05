@@ -10,20 +10,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>+</td>
-          <td>Lorem ipsum dolor sit amet, consectetur adipiscing </td>
-          <td>R$ 12.999,99</td>
-        </tr>
-        <tr>
-          <td>-</td>
-          <td>Lorem ipsum dolor sit amet </td>
-          <td>R$ 99,99</td>
-        </tr>
-        <tr>
-          <td>+</td>
-          <td>Lorem ipsum</td>
-          <td>R$ 9,99</td>
+        <tr v-for="data of history" :key="data.id">
+          <td>{{ data.type === 'buy' ? '+' : '-' }}</td>
+          <td>{{ data.name }}</td>
+          <td>{{ data.price }}</td>
         </tr>
       </tbody>
       <tfoot>
@@ -32,12 +22,50 @@
           <td>Total</td>
           <td>R$ 12.909,99</td>
         </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <small>[LUCRO]</small>
+          </td>
+        </tr>
       </tfoot>
     </table>
   </section>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      history: [
+        {
+          id: 1,
+          type: 'buy',
+          name: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+          price: 'R$ 12.999,99'
+        },
+        {
+          id: 2,
+          type: 'sell',
+          name: 'Lorem ipsum dolor sit amet',
+          price: 'R$ 99,99'
+        },
+        {
+          id: 3,
+          type: 'buy',
+          name: 'Lorem ipsum',
+          price: 'R$ 9,99'
+        }
+      ]
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 @import '~@/styles/colors';
+
+$table-border: 1px solid map-get($theme-colors, 'gray');
 
 .dashboard-order-history {
   &__title {
@@ -50,10 +78,14 @@
     text-align: left;
     width: 100%;
 
+    tbody tr {
+      border-bottom: $table-border;
+    }
+
     td {
       padding: 0.2em;
     }
-    
+
     td:first-of-type {
       width: 1.5em;
     }
@@ -63,11 +95,18 @@
     }
 
     tfoot {
-      border-top: 1px solid map-get($theme-colors, 'dark-gray');
+      border-top: $table-border;
       font-weight: bold;
       margin-top: 0.5em;
+
+      small {
+        font-weight: normal;
+      }
+
+      td:last-of-type {
+        text-align: right;
+      }
     }
   }
 }
-
 </style>
