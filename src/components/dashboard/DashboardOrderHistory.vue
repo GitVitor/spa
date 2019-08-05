@@ -10,23 +10,29 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="data of history" :key="data.id">
-          <td>{{ data.type === 'buy' ? '+' : '-' }}</td>
+        <tr v-for="data of orderHistory" :key="data.id">
+          <td>{{ data.type === 'buy' ? '-' : '+' }}</td>
           <td>{{ data.name }}</td>
-          <td>{{ data.price }}</td>
+          <td>R$ {{ data.price | toCurrency }}</td>
+        </tr>
+        <tr v-if="!orderHistory.length">
+          <td
+            class="dashboard-order-history__table__empty-item"
+            colspan="3"
+          >Nenhuma transação realizada</td>
         </tr>
       </tbody>
-      <tfoot>
+      <tfoot v-if="orderHistory.length">
         <tr>
           <td></td>
           <td>Total</td>
-          <td>R$ 12.909,99</td>
+          <td>R$ {{ total | toCurrency }}</td>
         </tr>
         <tr>
           <td></td>
           <td></td>
           <td>
-            <small>[LUCRO]</small>
+            <small>[{{ total > 0 ? 'LUCRO' : 'PREJUIZO' }}]</small>
           </td>
         </tr>
       </tfoot>
@@ -37,26 +43,33 @@
 export default {
   data() {
     return {
-      history: [
-        {
-          id: 1,
-          type: 'buy',
-          name: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-          price: 'R$ 12.999,99'
-        },
-        {
-          id: 2,
-          type: 'sell',
-          name: 'Lorem ipsum dolor sit amet',
-          price: 'R$ 99,99'
-        },
-        {
-          id: 3,
-          type: 'buy',
-          name: 'Lorem ipsum',
-          price: 'R$ 9,99'
-        }
-      ]
+      history: []
+    }
+  },
+  mounted() {
+    this.loadOrderHistory()
+    this.$root.$on('updateOrderHistory', this.loadOrderHistory)
+  },
+  computed: {
+    orderHistory() {
+      return this.history.map((o, id) => ({ ...o, id }))
+    },
+    total() {
+      const sum = (x, y) => x + y
+      const subtract = (x, y) => x - y
+      return this.orderHistory.reduce(
+        (acc, cur) =>
+          cur.type === 'buy'
+            ? subtract(acc, parseFloat(cur.price))
+            : sum(acc, parseFloat(cur.price)),
+        0
+      )
+    }
+  },
+  methods: {
+    loadOrderHistory() {
+      const orderHistory = window.localStorage.getItem('orderHistory')
+      this.history = orderHistory ? JSON.parse(orderHistory) : []
     }
   }
 }
@@ -106,6 +119,10 @@ $table-border: 1px solid map-get($theme-colors, 'gray');
       td:last-of-type {
         text-align: right;
       }
+    }
+
+    &__empty-item {
+      text-align: center !important;
     }
   }
 }

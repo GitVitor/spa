@@ -18,13 +18,16 @@
       class="dashboard-order__vv-field dashboard-order__vv-field-name"
       label="Nome da mercadoria"
     >
-      <vv-input @change="evt => updateOrder('name', evt.target.value.trim())" />
+      <vv-input :externalValue="order.name" @keyup="evt => updateOrder('name', evt.target.value)" />
     </vv-field>
     <vv-field class="dashboard-order__vv-field" label="Valor">
       <money class="dashboard-order__v-money" v-model="order.price"></money>
     </vv-field>
     <div class="dashboard-order__wrapper-add-order">
-      <button class="dashboard-order__btn-add-order btn btn-dark-gray">Adicionar transação</button>
+      <button
+        class="dashboard-order__btn-add-order btn btn-dark-gray"
+        @click="addOrder"
+      >Adicionar transação</button>
     </div>
   </section>
 </template>
@@ -56,6 +59,23 @@ export default {
     updateOrder(type, newValue) {
       Object.keys(this.order).includes(type) &&
         (() => (this.order[type] = newValue))()
+    },
+    cleanOrder() {
+      return Object.keys(this.order).map(k => (this.order[k] = undefined))
+    },
+    addOrder() {
+      const orderHistory = this.getOrderHistory()
+      orderHistory.push(this.order)
+      this.setOrderHistory(orderHistory)
+      this.cleanOrder()
+      this.$root.$emit('updateOrderHistory')
+    },
+    getOrderHistory() {
+      const orderHistory = window.localStorage.getItem('orderHistory')
+      return orderHistory ? JSON.parse(orderHistory) : []
+    },
+    setOrderHistory(orderHistory = []) {
+      window.localStorage.setItem('orderHistory', JSON.stringify(orderHistory))
     }
   }
 }

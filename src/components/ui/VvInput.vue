@@ -1,5 +1,5 @@
 <template functional>
-  <input class="vv-input" type="text" v-on="listeners" />
+  <input class="vv-input" :value="props.externalValue" type="text" v-on="listeners" />
 </template>
 <style lang="scss" scoped>
 @import '~@/styles/colors';
