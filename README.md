@@ -36,3 +36,6 @@ See vue.config.js to know how to use import alias, like webpack alias
 
 ### COMPONENT NAME
 Component with vv prefix means via-varejo, it is used to avoid mixtakes of HTML tag names, like header vs vv-header
+
+### ELEMENT CLASS NAMES
+Follow BEM[Block - Element - Modifier](http://getbem.com/introduction/) pattern
