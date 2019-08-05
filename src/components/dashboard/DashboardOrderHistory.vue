@@ -70,6 +70,7 @@ export default {
     loadOrderHistory() {
       const orderHistory = window.localStorage.getItem('orderHistory')
       this.history = orderHistory ? JSON.parse(orderHistory) : []
+      return this.history
     }
   }
 }

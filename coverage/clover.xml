@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1564980433955" clover="3.2.0">
+  <project timestamp="1564980433956" name="All files">
+    <metrics statements="26" coveredstatements="26" conditionals="13" coveredconditionals="11" methods="7" coveredmethods="7" elements="46" coveredelements="44" complexity="0" loc="26" ncloc="26" packages="2" files="3" classes="3">
+      <package name="components.dashboard">
+        <metrics statements="24" coveredstatements="24" conditionals="9" coveredconditionals="8" methods="6" coveredmethods="6"/>
+        <file name="DashboardOrder.vue" path="/home/vitor/workspace/test/spa/src/components/dashboard/DashboardOrder.vue">
+          <metrics statements="14" coveredstatements="14" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="46" count="9" type="stmt"/>
+          <line num="60" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="64" count="4" type="stmt"/>
+          <line num="67" count="1" type="stmt"/>
+          <line num="68" count="1" type="stmt"/>
+          <line num="69" count="1" type="stmt"/>
+          <line num="70" count="1" type="stmt"/>
+          <line num="71" count="1" type="stmt"/>
+          <line num="74" count="2" type="stmt"/>
+          <line num="75" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="78" count="1" type="stmt"/>
+        </file>
+        <file name="DashboardOrderHistory.vue" path="/home/vitor/workspace/test/spa/src/components/dashboard/DashboardOrderHistory.vue">
+          <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+          <line num="45" count="4" type="stmt"/>
+          <line num="50" count="4" type="stmt"/>
+          <line num="51" count="4" type="stmt"/>
+          <line num="55" count="17" type="stmt"/>
+          <line num="58" count="9" type="stmt"/>
+          <line num="59" count="5" type="stmt"/>
+          <line num="60" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="71" count="5" type="stmt"/>
+          <line num="72" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="73" count="5" type="stmt"/>
+        </file>
+      </package>
+      <package name="filters">
+        <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <file name="toCurrency.js" path="/home/vitor/workspace/test/spa/src/filters/toCurrency.js">
+          <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="2" count="10" type="cond" truecount="3" falsecount="1"/>
+          <line num="4" count="10" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
