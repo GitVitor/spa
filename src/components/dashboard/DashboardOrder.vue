@@ -11,20 +11,20 @@
           v-for="type of transactionsType"
           :key="type.value"
           :value="type.value"
-          >{{ type.label }}</option
-        >
+        >{{ type.label }}</option>
       </vv-select>
     </vv-field>
-    <vv-field class="dashboard-order__vv-field dashboard-order__vv-field-name" label="Nome da mercadoria">
-      <vv-input @change="evt => updateOrder('name', evt.target.value.trim())"/>
+    <vv-field
+      class="dashboard-order__vv-field dashboard-order__vv-field-name"
+      label="Nome da mercadoria"
+    >
+      <vv-input @change="evt => updateOrder('name', evt.target.value.trim())" />
     </vv-field>
     <vv-field class="dashboard-order__vv-field" label="Valor">
-      <vv-input />
+      <money class="dashboard-order__v-money" v-model="order.price"></money>
     </vv-field>
     <div class="dashboard-order__wrapper-add-order">
-      <button class="dashboard-order__btn-add-order btn btn-dark-gray">
-        Adicionar transação
-      </button>
+      <button class="dashboard-order__btn-add-order btn btn-dark-gray">Adicionar transação</button>
     </div>
   </section>
 </template>
