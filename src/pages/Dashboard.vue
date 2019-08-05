@@ -1,5 +1,5 @@
 <template>
-  <main class="main-content">
+  <main class="main-content container">
     <dashboard-order />
     <hr class="divider" />
     <dashboard-order-history />
@@ -27,6 +27,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: auto;
+
+  @include media-breakpoint-up(md) {
+    width: 100%;
+  }
+
 
   @include media-breakpoint-up(lg) {
     flex-direction: row;

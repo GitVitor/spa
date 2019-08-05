@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header-wrapper">
-      <header class="d-flex header">
+      <header class="d-flex header container">
         <i class="material-icons header__icon-logo header__icon--font-bigger">add_shopping_cart</i>
         <h1 class="header__h1">Controle financeiro</h1>
         <i
@@ -44,8 +44,13 @@ export default {
 }
 
 .header {
-  padding: 1em 0;
   justify-content: space-between;
+  padding: 1em 0;
+  width: auto;
+
+  @include media-breakpoint-up(md) {
+    width: 100%;
+  }
 
   @include media-breakpoint-up(lg) {
     padding: 1.5em 1em;
@@ -53,9 +58,13 @@ export default {
   }
 
   &__h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 300;
     margin: 0;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 1.5em;
+    }
   }
 
   &__icon-menu {
@@ -67,7 +76,9 @@ export default {
   }
 
   &__icon-logo {
-    margin-right: 1em;
+    @include media-breakpoint-up(lg) {
+      margin-right: 1em;
+    }
   }
 
   &__icon--font-bigger {
