@@ -60,7 +60,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped>
 @import '~@/styles/colors';
 @import '~@/styles/variables';
@@ -78,12 +77,22 @@ export default {
     padding: 1em;
   }
 
+  @include media-breakpoint-up(lg) {
+    flex-direction: column;
+    width: 25em;
+  }
+
   ::v-deep &__vv-field {
     margin: 0.5em 0;
 
     @include media-breakpoint-up(md) {
       flex-basis: 200px;
       margin: 0 1em;
+    }
+
+    @include media-breakpoint-up(lg) {
+      flex-basis: auto;
+      margin: 0 0 1em;
     }
 
     &:first-of-type {
@@ -113,12 +122,21 @@ export default {
       flex: 0 0 100%;
       text-align: center;
     }
+
+    @include media-breakpoint-up(lg) {
+      flex: 0 0 auto;
+    }
   }
 
   &__wrapper-add-order {
     flex: 0 0 100%;
     display: flex;
     justify-content: flex-end;
+
+    @include media-breakpoint-up(lg) {
+      // display: none;
+      flex: 0 0 auto;
+    }
   }
 
   &__btn-add-order {
@@ -127,6 +145,11 @@ export default {
     @include media-breakpoint-up(md) {
       margin-top: 1em;
       width: 300px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 0;
+      width: 100%;
     }
   }
 }
